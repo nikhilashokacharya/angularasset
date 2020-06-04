@@ -1,0 +1,57 @@
+<div class="container" style="margin-top: 70px;">
+  
+  <div class="row">
+    
+    <div class="col-sm-8 offset-sm-2">
+      <h1>Add Request</h1>
+      <div>
+        <form #requestForm='ngForm' (ngSubmit)='addRequest(requestForm)'>
+          <div class="form-group" >
+            <div [class.has-error]="assetID.invalid&&assetID.touched">
+            <label for="assetID">Asset Id</label>
+            <input ngModel pattern="^[0-9]+$" #assetID="ngModel" type="text" name="assetID" class="form-control" id="assetID" aria-describedby="idHelp" placeholder="Enter Asset ID" required>
+            <!-- <small id="titleHelp" class="form-text text-muted">Enter Title</small> -->
+            <span class="help.block" *ngIf="assetID.errors?.required&&assetID.touched" style="color: red;">required*</span>
+            <span class="help.block" *ngIf="assetID.errors?.pattern&&assetID.touched" style="color: red;">this field accepts numbers only</span>
+ 
+          </div>
+          
+          
+            <div [class.has-error]="employeeID.invalid&&employeeID.touched">
+            <label for="employeeID">Employee Id</label>
+            <input ngModel pattern="^[0-9]+$" #employeeID="ngModel" type="text" name="employeeID" class="form-control" id="employeeID" aria-describedby="idHelp" placeholder="Enter Employee ID" required>
+            <!-- <small id="titleHelp" class="form-text text-muted">Enter Title</small> -->
+            <span class="help.block" *ngIf="employeeID.errors?.required&&employeeID.touched" style="color: red;">required*</span>
+            <span class="help.block" *ngIf="employeeID.errors?.pattern&&employeeID.touched" style="color: red;">this field accepts numbers only</span>
+ 
+          </div>
+
+            <div [class.has-error]="quantity.invalid&&quantity.touched">
+            <label for="quantity">Quantity</label>
+            <input ngModel #quantity="ngModel" type="text" name="quantity" class="form-control" id="quantity" aria-describedby="idHelp" placeholder="Enter Quantity"required pattern="^[0-9]{1,3}$">
+            <!-- <small id="quantityHelp" class="form-text text-muted">Enter Quantity</small> -->
+            <span class="help.block" *ngIf="quantity.errors?.required&&quantity.touched" style="color: red;">required*</span>
+            <span class="help.block" *ngIf="quantity.errors?.pattern&&quantity.touched" style="color: red;">numbers only accepted,Less than 1000</span>
+            </div>
+
+            <!-- <div [class.has-error]="totalPrice.invalid&&totalPrice.touched">
+            <label for="totalPrice">Total Price</label>
+            <input [(ngModel)]="asset1.totalPrice" #totalPrice="ngModel" type="text" name="totalPrice" class="form-control" id="totalPrice" aria-describedby="emailHelp"
+              placeholder="totalPrice"required pattern="^[0-9]{1,8}$">
+            <small id="totalPriceHelp" class="form-text text-muted">Total Price</small> -->
+            <!-- <span class="help.block" *ngIf="totalPrice.errors?.required&&totalPrice.touched" style="color: red;">total price is required</span>
+            <span class="help.block" *ngIf="totalPrice.errors?.pattern&&totalPrice.touched" style="color: red;">numbers only accepted</span>
+            </div> --> 
+            <label for="additionalNotes">Additional details</label>
+            <textarea ngModel name="additionalNotes" class="form-control" id="additionalNotes" aria-describedby="descHelp">
+                      </textarea>
+            <small id="detailsHelp" class="form-text text-muted">Additional details</small>
+
+          </div>
+          <button type="submit" class="btn btn-primary">Raise Request</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>

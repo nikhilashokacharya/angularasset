@@ -1,0 +1,55 @@
+<div class="container" style="margin-top: 70px;">
+  <button class="btn" routerLink='/addrequest'>Request form</button>
+      
+  <button class="btn btn-primary" routerLink='/current'>Assets</button>
+  <h1>Requests</h1>
+  <div>
+    <h4 class="col-md-2">Sort By</h4>
+      <select style="width: 30%;" name="" id="" class="form-control" [(ngModel)]="fieldName" (change)="getSortedData()">
+         <option value="title">Title</option>
+         <option value="quantity">Quantity</option>
+         <option value="price">Price</option>
+         <option value="totalPrice">Total Price</option>
+         
+       </select>
+   
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Asset ID</th>
+        <th>Employee ID</th>
+        <th>Quantity</th>
+        <th>Additional Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request1 of requests ">
+
+        <td> {{ request1.requestID }}</td>
+        <td>{{ request1.assetID }}</td>
+        <td>{{ request1.employeeID }}</td>
+        <td> {{ request1.quantity }}</td>
+        <td> {{ request1.additionalNotes }}</td>
+        <td> <button class="btn btn-primary" (click)="editRequest(request1)">Edit</button></td>
+        <td> <button class="btn btn-danger" (click)="deleteRequest(request1)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+      <!-- <button class="btn" routerLink='/adding'>Edit Profile</button>
+      
+      <button class="btn btn-primary" routerLink='/addasset'>Add new Asset</button> -->
+      <hr>
+      <!-- <div style="align-items: center;">
+      <button class=".btn-xlarge" routerLink='/report'>Generate Report</button>
+    </div> -->
+    <mat-paginator [length]="totalItems"
+              [pageSize]="itemsPerPage"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              (page) = "getNextPageItems($event)">
+              
+
+            </mat-paginator>
+</div>

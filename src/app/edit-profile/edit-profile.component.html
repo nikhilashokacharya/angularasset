@@ -1,0 +1,27 @@
+
+<div class="container" layout-align="center center" style="margin-top: 70px;">
+  <button class="btn" *ngIf="!dataService.isLogged()"routerLink='/adding'>Edit Profile</button>
+  <button class="btn btn-primary" routerLink='/current'>Asset Details</button>
+  <h1>User Profile</h1>
+  <table class="table table-hover">
+
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+
+        <td>{{ details.userID}}</td>
+        <td> {{ details.userName}}</td>
+        <td> {{ details.email }}</td>
+        <!-- <td>{{ profile1.totalAssets }}</td> -->
+      </tr>
+    </tbody>
+  </table>
+      <!-- <button class="btn"routerLink='/adding'>Edit Profile</button>
+      <button class="btn btn-primary" routerLink='/current'>Asset Details</button> -->
+   </div>

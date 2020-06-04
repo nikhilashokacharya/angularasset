@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="navcolor">
+  <span><mat-icon>eco</mat-icon>Asset Management</span>
+<div class="spacer"></div>
+<a mat-button routerLink="profile" *ngIf='dataService.isLogged()' >Profile</a>
+<a mat-button routerLink="requesttable" *ngIf='dataService.isManager()'>Requests</a>
+<a mat-button routerLink="requesttable1" *ngIf='dataService.isAdmin()'>Approve</a>
+  <a mat-button routerLink="login" *ngIf='!dataService.isLogged()' >Login</a>
+  <a mat-raised-button color="primary" routerLink="register" *ngIf='dataService.isAdmin()'>Register</a>
+  <a mat-raised-button color="primary" routerLink="login" (click)='dataService.isLogout()' *ngIf='dataService.isLogged()'>Logout</a>
+</mat-toolbar>

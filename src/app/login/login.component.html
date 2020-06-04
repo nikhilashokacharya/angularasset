@@ -1,0 +1,41 @@
+<div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+<div class="col-md-4 offset-md-4 mt-4">
+  <h4>Login</h4>
+  
+<form #loginform='ngForm' (ngSubmit)="onSubmit(loginform)">
+
+  <div class="form-group">
+<label for="email">Email</label>
+<input type="email" name="email" id="email" required email #email='ngModel' ngModel class="form-control">
+
+<div *ngIf='email.invalid && email.touched'>
+  <div class="alert alert-danger" *ngIf='email.errors.required'>
+    Email is Mandatory
+  </div>
+
+  <div class="alert alert-danger" *ngIf='email.errors.email'>
+    This is not correct format
+  </div>
+
+</div>
+</div>
+
+
+<div class="form-group">
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" required #password='ngModel' ngModel class="form-control">
+  
+  <div *ngIf='password.invalid && password.touched'>
+    <div class="alert alert-danger" *ngIf='password.errors.required'>
+      Required Field
+    </div>
+  </div>   
+
+</div>
+  
+<button type="submit" class="btn btn-primary" 
+[disabled]='loginform.invalid'>Submit</button>
+
+
+</form>
+</div>

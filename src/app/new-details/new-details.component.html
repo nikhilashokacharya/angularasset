@@ -1,0 +1,53 @@
+
+
+
+  <form #templateForm='ngForm' (ngSubmit)='putProfile(templateForm)'>
+  <div class="container">
+    <h1>Edit Profile</h1>
+    <p>Fields marked with asterisk are required</p>
+    <hr>
+    <div class="form-group" [class.has-error]="userName.invalid&&userName.touched">
+    <label for="userName" ><b>Name*</b></label>
+    <br>
+    <input type="text" placeholder="Enter Name" [(ngModel)]="formUser.userName"
+    name="userName" class="form-control"
+    #userName="ngModel" required pattern="^[a-zA-Z]+$">
+    <br>
+    <span class="help.block" *ngIf="userName.errors?.required&&userName.touched" style="color: red;">Name is required</span>
+    <span class="help.block" *ngIf="userName.errors?.pattern&&userName.touched" style="color: red;">this field accepts alphabets only</span>
+ 
+  </div>
+    <div [class.has-error]="email.invalid&&email.touched">
+
+    <label for="email"><b>Email*</b></label>
+    <br>
+    <input type="text" placeholder="Enter Email" [(ngModel)]="formUser.email"
+    name="email"
+    #email="ngModel" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" >
+    <br>
+    <span class="help.block" *ngIf="email.errors?.required&&email.touched" style="color: red;">Email is required</span>
+    <span class="help.block" *ngIf="email.errors?.pattern&&email.touched" style="color: red;">this field accepts email only</span>
+  
+  </div>
+  <br>
+    <!-- <div [class.has-error]="userID.invalid&&userID.touched">
+
+    <label for="userID" ><b>User ID*</b></label>
+    <br>
+    <input type="text" class="form-control"  [(ngModel)]="formUser.userID"
+    name="userID"
+    #userID="ngModel" required pattern="^[0-9]+$" [disabled]="true">
+    <br>
+    <span class="help.block" *ngIf="userID.errors?.required&&userID.touched" style="color: red;">user ID is required</span>
+        <span class="help.block" *ngIf="userID.errors?.pattern&&userID.touched" style="color: red;">user ID must have at least one digit</span>
+
+  </div> -->
+    
+    
+    <button type="submit" class="registerbtn">Submit</button>
+  </div>
+  
+  </form>
+
+
+
